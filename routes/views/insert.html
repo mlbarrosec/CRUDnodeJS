@@ -11,10 +11,9 @@
 <body>
     
     <div class="container">
-        
-        <div class="row">            
-            <div class="col-md-12">
-                        
+
+        <div class="row">
+            <div class="col-md-12">                        
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                     <a class="navbar-brand" href="/">CRUD Nodejs</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,22 +30,19 @@
         </div>
         <br>
         <div class="row">
-            <div class="col-md-12">
-                <h1>Initial page</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore 
-                    consequatur est saepe libero distinctio commodi quo hic, nesciunt consequuntur. 
-                    Nihil quam mollitia necessitatibus voluptatem voluptates suscipit iusto libero iste possimus!
-                </p>
-
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, totam! 
-                    Consequatur eum reprehenderit possimus itaque delectus praesentium tempora, 
-                    fugit dolores, expedita tenetur tempore eveniet nostrum soluta ab? Provident, 
-                    dignissimos officiis.
-                </p>
-                
+            
+            <div class="col-md-7">
+                    <h1>Add User</h1>
+                    <form action='/insert' method='post'>
+                        <input class="form-control" type='text' name='name' placeholder="name"></input><br>
+                        <input class="form-control" type='text' name='username' placeholder="username"></input><br>
+                        <input class="form-control" type='text' name='email' placeholder="email"></input><br>
+                        <input class="form-control" type='text' name='address' placeholder="address"></input><br>
+                        <input class="form-control" type='text' name='phone' placeholder="phone"></input><br>
+                        <button type="submit" class="btn btn-dark">Add User</button>
+                    </form>
             </div>
-
+            <div class="col-md-5"></div>
 
         </div>
     </div>

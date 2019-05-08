@@ -17,9 +17,10 @@ const connection = createConnection ({
 
 export class dbRequests {
 
+    //Function response for add users in db
     insertUser(body:any,res:any):void {
         connection
-            .then(connection => {
+        .then(connection => {
                 connection
                 .createQueryBuilder()
                 .insert()
@@ -34,16 +35,16 @@ export class dbRequests {
                     }
                 ])
                 .execute();
-                res.status(200).send('User Insert Success!');
-            })
-            .catch(error => {
+                res.redirect('/success');                             
+        })
+        .catch(error => {
                 let saidaErro = {
                     "errorCode":"400",
                     "msg": 'Error connect to database'
                 }         
                 res.status(400).send(saidaErro);
                 console.log(error);
-            });
+        });
     }
 
 }

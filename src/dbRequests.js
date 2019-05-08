@@ -33,7 +33,8 @@ class dbRequests {
                 }
             ])
                 .execute();
-            res.status(200).send('User Insert Success!');
+            res.redirect('/success');
+            // res.status(200).send('User Insert Success!');               
         })
             .catch(error => {
             let saidaErro = {
