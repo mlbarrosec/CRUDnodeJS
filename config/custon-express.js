@@ -15,8 +15,8 @@ module.exports = function() { //esse modulo exporta a variavel app com express e
     app.use(expressValidator());
 
     consign()
-        .include('db_configs') //include de folder controllers
-        .then('routes/crudRoutes.js')
+        .include('routes/crudRoutes.js') //include de folder controllers        
+        .then('src')
         .into(app);    
     return app;
 }
