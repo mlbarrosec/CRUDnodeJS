@@ -1,0 +1,16 @@
+{
+  "name": "crud",
+  "version": "1.0.0",
+  "description": "um simples crud usando node js and mysql para cadastro de usuários",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "crud",
+    "nodejs",
+    "mysql"
+  ],
+  "author": "Marcelo Barros",
+  "license": "ISC"
+}
