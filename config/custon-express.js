@@ -12,11 +12,11 @@ module.exports = function() { //esse modulo exporta a variavel app com express e
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(bodyParser.json());
 
-    app.use(expressValidator());
+    app.use(expressValidator()); 
 
     consign()
         .include('routes/crudRoutes.js') //include de folder controllers        
-        .then('src')
+        .then('src')        
         .into(app);    
     return app;
 }

@@ -21,7 +21,6 @@ const connection = createConnection ({
 });
 
 
-
 export class dbRequests {
 
     //Function response for add users in db
@@ -53,7 +52,7 @@ export class dbRequests {
                 console.log(error);
         });
     }
-    
+
     //Function to list all users in data base
     //return in response a template for table html mount
     listUsers(res:any):void {
