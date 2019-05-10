@@ -67,8 +67,8 @@ function ScreamTemplateUsers(arrayUsers) {
                     </div>
 
                     <nav class="navbar fixed-bottom navbar-dark bg-dark">
-                        <a class="navbar-brand" href="#">Marcelo Lopes de Barros</a>
-                        <a class="navbar-brand" href="#">E-mail: mlbarrosec@gmail.com</a>
+                            <p style="color:beige">Marcelo Lopes de Barros</p>
+                            <p style="color:beige">mlbarrosec@gmail.com</p>
                     </nav>
                 </div>        
             </body>
@@ -80,109 +80,6 @@ function ScreamTemplateUsers(arrayUsers) {
     return (templateUsers);
 }
 exports.ScreamTemplateUsers = ScreamTemplateUsers;
-function ScreamTemplateDelete(idUser) {
-    let templateDelete = `<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <title>CRUD NODE JS</title>
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">            
-                <div class="col-md-12">
-                            
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                        <a class="navbar-brand" href="/">CRUD</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
-                            <a class="nav-item nav-link" href="/insert">INSERT</a>
-                            <a class="nav-item nav-link" href="/users-list">USERS</a>                       
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Success!</h1>
-                    <p>User ${idUser},  deleted successfully!"</p>                
-                </div>
-            </div>
-
-            <nav class="navbar fixed-bottom navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Marcelo Lopes de Barros</a>
-                <a class="navbar-brand" href="#">E-mail: mlbarrosec@gmail.com</a>
-            </nav>
-        </div>
-    </body>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </html>`;
-    return templateDelete;
-}
-exports.ScreamTemplateDelete = ScreamTemplateDelete;
-function ScreamTemplateInsert(idName) {
-    let templateInsert = `<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <title>CRUD NODE JS</title>
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">            
-                <div class="col-md-12">
-                            
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                        <a class="navbar-brand" href="/">CRUD</a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                            <div class="navbar-nav">
-                            <a class="nav-item nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
-                            <a class="nav-item nav-link" href="/insert">INSERT</a>
-                            <a class="nav-item nav-link" href="/users-list">USERS</a>                       
-                            </div>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Success!</h1>
-                    <p>User ${idName}, added successfully!"</p>                
-                </div>                
-            </div>
-
-            <nav class="navbar fixed-bottom navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Marcelo Lopes de Barros</a>
-                <a class="navbar-brand" href="#">E-mail: mlbarrosec@gmail.com</a>
-            </nav>
-
-        </div>
-    </body>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    </html>`;
-    return templateInsert;
-}
-exports.ScreamTemplateInsert = ScreamTemplateInsert;
 function ScreamTemplateUserDetail(user) {
     let templateUserDetail = `
     <!DOCTYPE html>
@@ -239,8 +136,8 @@ function ScreamTemplateUserDetail(user) {
                 </div>
 
                 <nav class="navbar fixed-bottom navbar-dark bg-dark">
-                    <a class="navbar-brand" href="#">Marcelo Lopes de Barros</a>
-                    <a class="navbar-brand" href="#">E-mail: mlbarrosec@gmail.com</a>
+                        <p style="color:beige">Marcelo Lopes de Barros</p>
+                        <p style="color:beige">mlbarrosec@gmail.com</p>
                 </nav>
             </div>        
         </body>
@@ -252,8 +149,8 @@ function ScreamTemplateUserDetail(user) {
     return (templateUserDetail);
 }
 exports.ScreamTemplateUserDetail = ScreamTemplateUserDetail;
-function ScreamTemplateEdit(idUser) {
-    let templateEdit = `<!DOCTYPE html>
+function ScreamTemplateMsg(title, msg) {
+    let templateMsg = `<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -265,8 +162,7 @@ function ScreamTemplateEdit(idUser) {
     <body>
         <div class="container">
             <div class="row">            
-                <div class="col-md-12">
-                            
+                <div class="col-md-12">                            
                     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                         <a class="navbar-brand" href="/">CRUD</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -285,14 +181,14 @@ function ScreamTemplateEdit(idUser) {
             <br>
             <div class="row">
                 <div class="col-md-12">
-                    <h1>Success!</h1>
-                    <p>User ${idUser}, Edit successfully!"</p>                
+                    <h1>${title}</h1>
+                    <p>${msg}</p>
                 </div>                
             </div>
 
             <nav class="navbar fixed-bottom navbar-dark bg-dark">
-                <a class="navbar-brand" href="#">Marcelo Lopes de Barros</a>
-                <a class="navbar-brand" href="#">E-mail: mlbarrosec@gmail.com</a>
+                    <p style="color:beige">Marcelo Lopes de Barros</p>
+                    <p style="color:beige">mlbarrosec@gmail.com</p>
             </nav>
 
         </div>
@@ -301,6 +197,6 @@ function ScreamTemplateEdit(idUser) {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </html>`;
-    return templateEdit;
+    return templateMsg;
 }
-exports.ScreamTemplateEdit = ScreamTemplateEdit;
+exports.ScreamTemplateMsg = ScreamTemplateMsg;

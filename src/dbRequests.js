@@ -14,7 +14,6 @@ const User_1 = require("./entity/User");
 const TemplatesAdmin_1 = require("./TemplatesAdmin"); //Template da página html 
 const TemplatesAdmin_2 = require("./TemplatesAdmin");
 const TemplatesAdmin_3 = require("./TemplatesAdmin");
-const TemplatesAdmin_4 = require("./TemplatesAdmin");
 const connection = typeorm_1.createConnection({
     type: "mysql",
     host: "localhost",
@@ -46,7 +45,9 @@ class dbRequests {
                 }
             ])
                 .execute();
-            res.send(TemplatesAdmin_3.ScreamTemplateInsert(body.name));
+            let title = "Success!";
+            let msg = "User inserted successfully.";
+            res.send(TemplatesAdmin_3.ScreamTemplateMsg(title, msg));
         })
             .catch(error => {
             let errorMsg = {
@@ -73,7 +74,9 @@ class dbRequests {
             })
                 .where("id = :id", { id: body.id })
                 .execute();
-            res.send(TemplatesAdmin_3.ScreamTemplateInsert(body.id));
+            let title = "Success!";
+            let msg = "User edited successfully.";
+            res.send(TemplatesAdmin_3.ScreamTemplateMsg(title, msg));
         }))
             .catch(error => {
             let errorMsg = {
@@ -111,7 +114,7 @@ class dbRequests {
                 .createQueryBuilder("user")
                 .where("user.id = :id", { id: idUser })
                 .getOne();
-            res.send(TemplatesAdmin_4.ScreamTemplateUserDetail(user));
+            res.send(TemplatesAdmin_2.ScreamTemplateUserDetail(user));
         }))
             .catch(error => {
             let errorMsg = {
@@ -131,7 +134,9 @@ class dbRequests {
                 .from(User_1.User)
                 .where("id = :id", { id: idUser })
                 .execute();
-            res.send(TemplatesAdmin_2.ScreamTemplateDelete(idUser));
+            let title = "Success!";
+            let msg = "User deletd successfully.";
+            res.send(TemplatesAdmin_3.ScreamTemplateMsg(title, msg));
         }))
             .catch(error => {
             let errorMsg = {

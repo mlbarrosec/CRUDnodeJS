@@ -3,11 +3,8 @@ import {createConnection, getRepository} from "typeorm";
 import {User} from "./entity/User";
 
 import {ScreamTemplateUsers} from "./TemplatesAdmin"; //Template da página html 
-
-import {ScreamTemplateDelete} from "./TemplatesAdmin";
-import {ScreamTemplateInsert} from './TemplatesAdmin';
 import {ScreamTemplateUserDetail} from './TemplatesAdmin';
-import {ScreamTemplateEdit} from './TemplatesAdmin';
+import {ScreamTemplateMsg} from './TemplatesAdmin';
 
 const connection = createConnection ({
     type: "mysql",
@@ -43,7 +40,9 @@ export class dbRequests {
                     }
                 ])
                 .execute();
-                res.send(ScreamTemplateInsert(body.name));                             
+                let title = "Success!";
+                let msg = "User inserted successfully.";
+                res.send(ScreamTemplateMsg(title,msg));                           
         })
         .catch(error => {
             let errorMsg = {
@@ -73,8 +72,10 @@ export class dbRequests {
                     )
                     .where("id = :id", {id: body.id})
                     .execute();
-                
-                    res.send(ScreamTemplateInsert(body.id));
+                    
+                    let title = "Success!";
+                    let msg = "User edited successfully.";
+                    res.send(ScreamTemplateMsg(title,msg));
             })
             .catch(error => {
                 let errorMsg = {
@@ -140,7 +141,9 @@ export class dbRequests {
                 .where("id = :id",{id: idUser})
                 .execute();
             
-            res.send(ScreamTemplateDelete(idUser));
+                let title = "Success!";
+                let msg = "User deleted successfully.";
+                res.send(ScreamTemplateMsg(title,msg));
         })
         .catch(error => {
             let errorMsg = {
