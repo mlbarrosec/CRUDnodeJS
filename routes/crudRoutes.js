@@ -19,13 +19,25 @@ module.exports = function(app) {
     app.post("/insert",function(req,res){ 
         let dataUser = req.body;
         let connection = new app.src.dbRequests();
-        connection.insertUser(dataUser,res)
+        connection.insertUser(dataUser,res);
     });
 
     app.get("/remove/:id",function(req,res){
         let id = req.params.id;
         let connection = new app.src.dbRequests();
         connection.deleteUser(id,res);
+    });
+
+    app.get("/user-details/:id", function(req,res){
+        let id = req.params.id;
+        let connection = new app.src.dbRequests();
+        connection.userDetails(id, res);
+    });
+
+    app.post("/edit-user", function(req, res){        
+        let dataUser = req.body;
+        let connection = new app.src.dbRequests();
+        connection.editUser(dataUser,res);
     });
 
     

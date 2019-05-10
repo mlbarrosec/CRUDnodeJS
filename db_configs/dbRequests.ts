@@ -6,6 +6,8 @@ import {ScreamTemplateUsers} from "./TemplatesAdmin"; //Template da página html
 
 import {ScreamTemplateDelete} from "./TemplatesAdmin";
 import {ScreamTemplateInsert} from './TemplatesAdmin';
+import {ScreamTemplateUserDetail} from './TemplatesAdmin';
+import {ScreamTemplateEdit} from './TemplatesAdmin';
 
 const connection = createConnection ({
     type: "mysql",
@@ -44,13 +46,44 @@ export class dbRequests {
                 res.send(ScreamTemplateInsert(body.name));                             
         })
         .catch(error => {
-                let saidaErro = {
-                    "errorCode":"400",
-                    "msg": 'Error connect to database'
-                }         
-                res.status(400).send(saidaErro);
-                console.log(error);
+            let errorMsg = {
+                "errorCode":"500",
+                "msg": 'Error in server'
+            }         
+            res.status(500).send(errorMsg);
+            console.log(error);
         });
+    }
+
+    //Function for edit user
+    editUser(body:any, res:any):void {
+        connection
+            .then(async connection =>{
+                connection
+                    .createQueryBuilder()
+                    .update(User)
+                    .set(
+                        {
+                            name: body.name, 
+                            username: body.username, 
+                            email: body.email, 
+                            address: body.address, 
+                            phone: body.phone 
+                        }
+                    )
+                    .where("id = :id", {id: body.id})
+                    .execute();
+                
+                    res.send(ScreamTemplateInsert(body.id));
+            })
+            .catch(error => {
+                let errorMsg = {
+                    "errorCode":"500",
+                    "msg": 'Error in server'
+                }         
+                res.status(500).send(errorMsg);
+                console.log(error);
+            });
     }
 
     //Function to list all users in data base
@@ -64,12 +97,36 @@ export class dbRequests {
             res.send(ScreamTemplateUsers(users));
         })
         .catch(error => {
-            let saidaErro = {
+            let errorMsg = {
                 "errorCode":"500",
                 "msg": 'Error in server'
             }         
-            res.status(500).send(saidaErro);
+            res.status(500).send(errorMsg);
             console.log(error);
+        });
+    }
+
+    //Function for list user details
+    userDetails(idUser:number,res:any){
+        connection
+        .then(async connection => { 
+            let user = await connection
+            .getRepository(User)
+            .createQueryBuilder("user")
+            .where("user.id = :id", { id: idUser })
+            .getOne();
+           
+            res.send(ScreamTemplateUserDetail(user));
+        })
+        .catch(error =>{
+
+            let errorMsg = {
+                "errorCode":"500",
+                "msg": 'Error in server'
+            }         
+            res.status(500).send(errorMsg);
+            console.log(error);
+
         });
     }
 
@@ -86,11 +143,11 @@ export class dbRequests {
             res.send(ScreamTemplateDelete(idUser));
         })
         .catch(error => {
-            let saidaErro = {
+            let errorMsg = {
                 "errorCode":"500",
                 "msg": 'Error in server'
             }         
-            res.status(500).send(saidaErro);
+            res.status(500).send(errorMsg);
             console.log(error);
         });
     }

@@ -14,6 +14,7 @@ const User_1 = require("./entity/User");
 const TemplatesAdmin_1 = require("./TemplatesAdmin"); //Template da página html 
 const TemplatesAdmin_2 = require("./TemplatesAdmin");
 const TemplatesAdmin_3 = require("./TemplatesAdmin");
+const TemplatesAdmin_4 = require("./TemplatesAdmin");
 const connection = typeorm_1.createConnection({
     type: "mysql",
     host: "localhost",
@@ -48,11 +49,38 @@ class dbRequests {
             res.send(TemplatesAdmin_3.ScreamTemplateInsert(body.name));
         })
             .catch(error => {
-            let saidaErro = {
-                "errorCode": "400",
-                "msg": 'Error connect to database'
+            let errorMsg = {
+                "errorCode": "500",
+                "msg": 'Error in server'
             };
-            res.status(400).send(saidaErro);
+            res.status(500).send(errorMsg);
+            console.log(error);
+        });
+    }
+    //Function for edit user
+    editUser(body, res) {
+        connection
+            .then((connection) => __awaiter(this, void 0, void 0, function* () {
+            connection
+                .createQueryBuilder()
+                .update(User_1.User)
+                .set({
+                name: body.name,
+                username: body.username,
+                email: body.email,
+                address: body.address,
+                phone: body.phone
+            })
+                .where("id = :id", { id: body.id })
+                .execute();
+            res.send(TemplatesAdmin_3.ScreamTemplateInsert(body.id));
+        }))
+            .catch(error => {
+            let errorMsg = {
+                "errorCode": "500",
+                "msg": 'Error in server'
+            };
+            res.status(500).send(errorMsg);
             console.log(error);
         });
     }
@@ -66,11 +94,31 @@ class dbRequests {
             res.send(TemplatesAdmin_1.ScreamTemplateUsers(users));
         }))
             .catch(error => {
-            let saidaErro = {
+            let errorMsg = {
                 "errorCode": "500",
                 "msg": 'Error in server'
             };
-            res.status(500).send(saidaErro);
+            res.status(500).send(errorMsg);
+            console.log(error);
+        });
+    }
+    //Function for list user details
+    userDetails(idUser, res) {
+        connection
+            .then((connection) => __awaiter(this, void 0, void 0, function* () {
+            let user = yield connection
+                .getRepository(User_1.User)
+                .createQueryBuilder("user")
+                .where("user.id = :id", { id: idUser })
+                .getOne();
+            res.send(TemplatesAdmin_4.ScreamTemplateUserDetail(user));
+        }))
+            .catch(error => {
+            let errorMsg = {
+                "errorCode": "500",
+                "msg": 'Error in server'
+            };
+            res.status(500).send(errorMsg);
             console.log(error);
         });
     }
@@ -86,11 +134,11 @@ class dbRequests {
             res.send(TemplatesAdmin_2.ScreamTemplateDelete(idUser));
         }))
             .catch(error => {
-            let saidaErro = {
+            let errorMsg = {
                 "errorCode": "500",
                 "msg": 'Error in server'
             };
-            res.status(500).send(saidaErro);
+            res.status(500).send(errorMsg);
             console.log(error);
         });
     }
