@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+//func to create the page user list
 function ScreamTemplateUsers(arrayUsers) {
     let templateUsers = `
         <!DOCTYPE html>
@@ -80,6 +81,7 @@ function ScreamTemplateUsers(arrayUsers) {
     return (templateUsers);
 }
 exports.ScreamTemplateUsers = ScreamTemplateUsers;
+//func to create the page user detail 
 function ScreamTemplateUserDetail(user) {
     let templateUserDetail = `
     <!DOCTYPE html>
@@ -149,6 +151,7 @@ function ScreamTemplateUserDetail(user) {
     return (templateUserDetail);
 }
 exports.ScreamTemplateUserDetail = ScreamTemplateUserDetail;
+//func to create sucess message pages
 function ScreamTemplateMsg(title, msg) {
     let templateMsg = `<!DOCTYPE html>
     <html lang="en">

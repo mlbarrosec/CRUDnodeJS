@@ -135,7 +135,7 @@ class dbRequests {
                 .where("id = :id", { id: idUser })
                 .execute();
             let title = "Success!";
-            let msg = "User deletd successfully.";
+            let msg = "User deleted successfully.";
             res.send(TemplatesAdmin_3.ScreamTemplateMsg(title, msg));
         }))
             .catch(error => {

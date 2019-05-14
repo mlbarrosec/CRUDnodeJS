@@ -1,6 +1,6 @@
 module.exports = function(app) { 
 
-    //Routes for Views
+    //Routes for Views html
     app.get("/", function(req,res){ 
         res.sendFile(__dirname + '/views/index.html');
     });
@@ -10,12 +10,14 @@ module.exports = function(app) {
     });
 
     //Routes dor Queryes
+    
+    //Route for 
     app.get("/users-list" ,function(req,res){
         //res.sendFile(__dirname + '/views/users-list.html'); 
         let connection = new app.src.dbRequests();
         connection.listUsers(res);
     });
-    
+
     app.post("/insert",function(req,res){ 
         let dataUser = req.body;
         let connection = new app.src.dbRequests();
